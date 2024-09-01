@@ -1,0 +1,11 @@
+node_modules
+dist
+temp
+
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+bun.lockb
+
+.idea
+__*

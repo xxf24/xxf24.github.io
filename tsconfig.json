@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "~/*": ["./*"],
+      "@/*": ["./.vitepress/*"]
+    },
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "lib": ["dom", "esnext"],
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "types": ["node"]
+  },
+  "include": [".vitepress/**/*", "demos/**/*"]
+}
