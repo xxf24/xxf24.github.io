@@ -23,7 +23,7 @@ export default defineConfig({
   themeConfig: {
     sidebar,
     externalLinkIcon: true,
-    logo: { light: '/imgs/ai.jpg', dark: '/imgs/flame.jpg' },
+    logo: { light: '/images/ai.jpg', dark: '/images/flame.jpg' },
     nav: [
       { text: '日常', link: '/posts/', activeMatch: '^/posts' },
       { text: '笔记', link: '/notes/', activeMatch: '^/notes' },
@@ -39,6 +39,16 @@ export default defineConfig({
     resolve: {
       alias: [...tsConfigPaths, ...vpComponentAlias],
     },
-    plugins: [Unocss(), Inspect()],
+    plugins: [
+      Inspect(),
+      Unocss({
+        // patch: avoid extractor the content in default theme
+        content: {
+          pipeline: {
+            include: ['../.vitepress/**/*.vue', '../demos/**/*.vue', '**/*.md'],
+          },
+        },
+      }),
+    ],
   },
 });

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import CollapseTransition from './CollapseTransition.vue';
 
 defineOptions({
   name: 'CollapseBox',
@@ -41,10 +40,9 @@ const iconClass = computed(() => {
         {{ open ? '收起' : text }}<i :class="iconClass" />
       </button>
     </div>
-    <CollapseTransition>
-      <div v-show="open" :class="boxPlace === 'top' && 'order-first'">
-        <slot />
-      </div>
-    </CollapseTransition>
+
+    <div v-show="open" :class="boxPlace === 'top' && 'order-first'">
+      <slot />
+    </div>
   </div>
 </template>

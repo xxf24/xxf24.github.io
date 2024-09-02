@@ -1,0 +1,30 @@
+/**
+ * Customize default theme styling by overriding CSS variables:
+ * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
+ */
+
+:root {
+  --vp-c-brand-2: var(--vp-c-brand-1);
+  --vp-c-brand-3: var(--vp-c-brand-2);
+}
+
+/**
+ * Doc Aside
+ * -------------------------------------------------------------------------- */
+.VPDoc .aside-curtain,
+.VPDoc .aside-content .outline-marker {
+  display: none !important;
+}
+
+.VPDoc .aside .outline-link {
+  padding-top: 0.5rem;
+  line-height: 1.5rem;
+  text-decoration: underline dotted var(--vp-c-border);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.25s ease-in-out;
+}
+
+.VPDoc .aside .outline-link:hover {
+  text-decoration-style: solid;
+  text-decoration-color: var(--vp-c-text-1);
+}

@@ -71,7 +71,7 @@ function formatNumber(value: number) {
 </script>
 
 <template>
-  <div ref="target" class="overflow-hidden min-h-28 rounded-lg border-base">
+  <div ref="target" class="overflow-hidden min-h-29 rounded-lg border-base">
     <div
       v-if="state === 'loading'"
       class="h-full animate-pulse bg-black/5 dark:bg-white/10"

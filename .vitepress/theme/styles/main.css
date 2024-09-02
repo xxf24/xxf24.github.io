@@ -1,3 +1,5 @@
+@import 'custom.css';
+
 html {
   /* https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color */
   -webkit-tap-highlight-color: transparent;
