@@ -13,6 +13,8 @@ tags:
 
 ## 试玩
 
+<DemoLoader :loader="() => import('~/demos/sliding-puzzle')" />
+
 ## 日志
 
 ### 实现开局乱序

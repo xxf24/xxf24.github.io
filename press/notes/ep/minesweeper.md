@@ -10,6 +10,8 @@ tags:
 
 ## 试玩
 
+<DemoLoader :loader="() => import('~/demos/minesweeper')" />
+
 ## 日志
 
 ### 操作说明
