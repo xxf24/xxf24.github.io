@@ -76,7 +76,7 @@ function getLastUpdateTime(filepath) {
 
 function saveToJson(items, saveDir = DefaultSaveDir) {
   Object.keys(items).forEach(key => {
-    const saveTo = `${saveDir}/__${key}.json`;
+    const saveTo = `${saveDir}/${key}.json`;
     fs.outputJsonSync(saveTo, items[key], { spaces: 2 });
     console.log(`dump ${items[key].length} ${key} to ${saveTo}`);
   });

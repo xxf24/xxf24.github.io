@@ -4,8 +4,79 @@
  */
 
 :root {
+  --vp-c-brand-1: var(--brand);
   --vp-c-brand-2: var(--vp-c-brand-1);
   --vp-c-brand-3: var(--vp-c-brand-2);
+}
+
+/**
+ * NavBar
+ * -------------------------------------------------------------------------- */
+.VPNavBarTitle .VPImage.logo {
+  height: 1.75rem;
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 960px) {
+  .VPLocalNav {
+    display: none;
+  }
+}
+
+.VPNav .divider {
+  padding-left: 0 !important;
+}
+
+.VPNavBarTitle.has-sidebar .title {
+  border-bottom: none;
+}
+
+/**
+ * Sidebar
+ * -------------------------------------------------------------------------- */
+:root {
+  --vp-sidebar-bg-color: var(--vp-c-bg);
+}
+
+.VPSidebar .group + .group {
+  border-top: none;
+}
+
+.VPSidebar .VPSidebarItem.level-0 {
+  padding-bottom: 0.5rem !important;
+}
+
+@media screen and (min-width: 960px) {
+  .VPSidebar {
+    padding-top: 1.25rem !important;
+    top: var(--vp-nav-height) !important;
+  }
+}
+
+/**
+ * Doc Content
+ * -------------------------------------------------------------------------- */
+.vp-doc blockquote {
+  border-left-width: 0.25rem;
+}
+
+.vp-doc button.copy {
+  display: none;
+}
+
+.vp-doc a {
+  text-decoration: none;
+}
+
+.vp-doc a:hover {
+  text-decoration: underline;
+}
+
+.vp-doc h2 {
+  border-top: none;
+  border-bottom: 1px solid var(--vp-c-divider);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
 }
 
 /**
@@ -27,4 +98,51 @@
 .VPDoc .aside .outline-link:hover {
   text-decoration-style: solid;
   text-decoration-color: var(--vp-c-text-1);
+}
+
+/**
+ * More...
+ * -------------------------------------------------------------------------- */
+th,
+td,
+tr {
+  border: inherit !important;
+}
+
+table {
+  --border-table: 1px solid var(--vp-c-border);
+  width: fit-content;
+  border-radius: var(--radius);
+  border-spacing: 0;
+  border-collapse: separate !important;
+  border: var(--border-table) !important;
+  overflow: hidden;
+}
+
+table th:not(:last-child),
+table td:not(:last-child) {
+  border-right: var(--border-table) !important;
+}
+
+table > thead > tr:not(:last-child) > th,
+table > thead > tr:not(:last-child) > td,
+table > tbody > tr:not(:last-child) > th,
+table > tbody > tr:not(:last-child) > td,
+table > tfoot > tr:not(:last-child) > th,
+table > tfoot > tr:not(:last-child) > td,
+table > tr:not(:last-child) > td,
+table > tr:not(:last-child) > th,
+table > thead:not(:last-child),
+table > tbody:not(:last-child),
+table > tfoot:not(:last-child) {
+  border-bottom: var(--border-table) !important;
+}
+
+.vp-doc iframe,
+.vp-doc img {
+  border-radius: var(--radius);
+}
+
+html.dark .vp-doc img {
+  filter: brightness(0.9);
 }

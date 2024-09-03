@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useData } from 'vitepress';
 import { computed, watch, ref, onMounted } from 'vue';
-import notesJson from '@/data/__notes.json';
+import notesJson from '@/data/notes.json';
 import NotesViewTabs from '../components/NotesViewTabs.vue';
 import NotesTagPanel from '../components/NotesTagPanel.vue';
 import NotesNavBlock from '../components/NotesNavBlock.vue';
@@ -19,6 +19,7 @@ const viewTabs: Array<{ key: NotesView; text: string; icon: string }> = [
 ];
 const activeViewIndex = ref(0);
 const activeView = computed(() => viewTabs[activeViewIndex.value].key);
+const showViewTabs = ref(false);
 
 const tagNotes = getSortedMarkdowns(notesJson, 'tags');
 const tags = tagNotes.map(({ label, items }) => ({
@@ -44,6 +45,7 @@ watch(hash, value => respectUrlHash(value));
 
 onMounted(() => {
   respectUrlHash(hash.value);
+  showViewTabs.value = true;
 });
 
 function respectUrlHash(hash: string) {
@@ -60,7 +62,11 @@ function respectUrlHash(hash: string) {
 <template>
   <main class="mx-auto max-w-3xl">
     <div class="flex flex-col gap-6 px-5 pb-20 pt-6 md:px-10">
-      <NotesViewTabs v-model="activeViewIndex" :tabs="viewTabs" />
+      <NotesViewTabs
+        v-if="showViewTabs"
+        v-model="activeViewIndex"
+        :tabs="viewTabs"
+      />
       <NotesTagPanel
         v-if="activeView === 'tags'"
         v-model="activeTagIndex"

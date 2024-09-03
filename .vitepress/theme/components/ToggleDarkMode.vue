@@ -14,6 +14,6 @@ function onClick() {
     hover="bg-black/5 dark:bg-white/10"
     @click="onClick"
   >
-    <i class="i-lucide-sun dark:i-lucide-moon" />
+    <i class="i-line-md-sun-rising-loop dark:i-line-md-moon-rising-loop" />
   </button>
 </template>

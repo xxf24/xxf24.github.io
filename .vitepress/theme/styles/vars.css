@@ -1,0 +1,8 @@
+:root {
+  --brand: #3b82f6;
+  --radius: 0.5rem;
+}
+
+:root.dark {
+  --brand: #10b981;
+}

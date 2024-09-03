@@ -3,6 +3,8 @@ import { sidebar } from './sidebar';
 import { tsConfigPaths, vpComponentAlias } from './alias';
 import Unocss from 'unocss/vite';
 import Inspect from 'vite-plugin-inspect';
+import postsJson from '../data/posts.json';
+import notesJson from '../data/notes.json';
 
 export default defineConfig({
   srcDir: 'press',
@@ -51,4 +53,50 @@ export default defineConfig({
       }),
     ],
   },
+
+  transformPageData({ relativePath, frontmatter }) {
+    const isPosts = relativePath.startsWith('posts');
+    const fileUrl = `/${relativePath.replace(/\.md$/, '')}`;
+    const mdMeta = getMarkdownMeta(fileUrl, isPosts ? postsJson : notesJson);
+    const presets: Record<string, any> = isPosts
+      ? {
+          center: true,
+          prev: mdMeta?.prev,
+          next: mdMeta?.next,
+        }
+      : {
+          lastUpdateTime: mdMeta?.lastUpdateTime,
+        };
+    return {
+      frontmatter: {
+        ...presets,
+        ...frontmatter,
+      },
+    };
+  },
 });
+
+function getMarkdownMeta(fileUrl: string, press: MarkdownMetaArr) {
+  const index = press.findIndex(({ link }) => link === fileUrl);
+  if (index > -1) {
+    let prev, next;
+    if (press.length > 1) {
+      prev =
+        index > 0
+          ? {
+              link: press[index - 1].link,
+              text: press[index - 1].title,
+            }
+          : void 0;
+      next =
+        index < press.length - 1
+          ? {
+              link: press[index + 1].link,
+              text: press[index + 1].title,
+            }
+          : void 0;
+    }
+    const lastUpdateTime = press[index].lastUpdateTime;
+    return { prev, next, lastUpdateTime };
+  }
+}

@@ -2,13 +2,15 @@
   "type": "module",
   "scripts": {
     "dev": "vitepress dev --host --port 5530",
-    "build": "vitepress build",
+    "build": "npm run update && vitepress build",
     "serve": "vitepress serve",
+    "update": "node scripts/md2json",
     "format": "prettier --write . !**/*.json"
   },
   "dependencies": {
+    "@iconify-json/line-md": "1.1.39",
     "@iconify-json/lucide": "^1.2.1",
-    "@types/node": "^22.5.1",
+    "@types/node": "^22.5.2",
     "@vueuse/core": "^11.0.3",
     "fast-glob": "^3.3.2",
     "fs-extra": "^11.2.0",

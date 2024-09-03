@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { formatDate } from '@vueuse/core';
 import { withBase } from 'vitepress';
-import { computed, ref } from 'vue';
+import { computed, watch, ref } from 'vue';
+import { getNotesLinkByTag } from '../utils/link';
 
 const props = defineProps<{
   notes: MarkdownMetaOrderArr;
@@ -14,6 +15,11 @@ const dateFormatStr = computed(() =>
 
 const openList = ref<boolean[]>([]);
 resetOpenList();
+
+watch(
+  () => props.view,
+  () => resetOpenList(),
+);
 
 function resetOpenList() {
   openList.value = Array(props.notes.length).fill(true);
@@ -37,8 +43,8 @@ function onToggle(event: Event, index: number) {
         class="group h-12 flex items-center justify-between rounded-lg px-2 transition"
         hover="cursor-pointer bg-gray-400/10"
       >
-        <div class="text-lg font-bold" :class="view === 'timeline' && 'pl-2'">
-          {{ note.label }}
+        <div class="text-lg font-bold">
+          {{ view === 'timeline' ? `${note.label} 年` : `${note.label}` }}
         </div>
         <div
           class="flex p-2 rounded-full opacity-80 transition"
@@ -52,7 +58,7 @@ function onToggle(event: Event, index: number) {
         <li
           v-for="(item, index) in note.items"
           :key="index"
-          class="group h-10 border-b border-b-solid border-$vp-c-divider"
+          class="group h-10 border-b-0 border-b-dotted border-$vp-c-divider not-last:border-b"
         >
           <a
             :href="withBase(item.link)"
@@ -81,7 +87,7 @@ function onToggle(event: Event, index: number) {
               {{ item.title }}
             </div>
             <div
-              class="mr-2 gap-1"
+              class="mr-4 gap-1"
               :class="[
                 view === 'tags' ? 'flex ml-auto sm:ml-0' : 'hidden sm:flex',
                 view === 'timeline' && 'ml-auto',
@@ -89,7 +95,8 @@ function onToggle(event: Event, index: number) {
             >
               <a
                 v-for="tag in item.tags"
-                class="flex items-center justify-center rounded bg-gray-400/20 px-2 h-5 text-xs opacity-80 transition"
+                :href="getNotesLinkByTag(tag)"
+                class="flex items-center justify-center rounded bg-gray-400/20 px-2 h-5 text-xs opacity-90 transition"
                 hover="opacity-100 bg-gray-400/30 text-$vp-c-brand-1"
                 >{{ tag }}</a
               >
@@ -97,7 +104,9 @@ function onToggle(event: Event, index: number) {
             <div
               class="text-right text-sm"
               :class="[
-                view === 'timeline' ? 'order-first w-16' : 'ml-auto mr-2',
+                view === 'timeline'
+                  ? 'order-first w-16'
+                  : 'ml-auto mr-4 font-mono',
                 view === 'tags' && 'hidden sm:flex',
               ]"
             >
