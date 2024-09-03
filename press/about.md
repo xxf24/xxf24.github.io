@@ -4,6 +4,7 @@
 
 - 😄 日常随记：[日常](./posts/index.md)
 - 📝 学习笔记：[笔记](./notes/index.md)
+- 🏷️ 杂七杂八：[音·游·书·影](./posts/arts/index.md) | [干饭记](./posts/cooks/index.md)
 
 ### 最近更新
 

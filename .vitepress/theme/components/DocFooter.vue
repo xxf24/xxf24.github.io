@@ -1,7 +1,4 @@
-<script setup lang="ts">
-// prev next
-// links
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <footer></footer>
