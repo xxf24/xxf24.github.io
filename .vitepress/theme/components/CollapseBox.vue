@@ -5,26 +5,23 @@ defineOptions({
   name: 'CollapseBox',
 });
 
-const props = withDefaults(
-  defineProps<{
-    boxPlace?: 'top' | 'bottom';
-    text?: string;
-    icon?: string;
-  }>(),
-  {
-    boxPlace: 'bottom',
-    text: '展开',
-    icon: 'i-lucide-lightbulb',
-  },
-);
+const {
+  boxPlace = 'bottom',
+  text = '展开',
+  icon = 'i-lucide-lightbulb',
+} = defineProps<{
+  boxPlace?: 'top' | 'bottom';
+  text?: string;
+  icon?: string;
+}>();
 
 const open = defineModel({ default: false });
 const iconClass = computed(() => {
   return open.value
-    ? props.boxPlace === 'top'
+    ? boxPlace === 'top'
       ? 'i-lucide-chevron-up'
       : 'i-lucide-chevron-down'
-    : props.icon;
+    : icon;
 });
 </script>
 
@@ -40,7 +37,6 @@ const iconClass = computed(() => {
         {{ open ? '收起' : text }}<i :class="iconClass" />
       </button>
     </div>
-
     <div v-show="open" :class="boxPlace === 'top' && 'order-first'">
       <slot />
     </div>

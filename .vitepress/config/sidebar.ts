@@ -7,7 +7,7 @@ import { formatDate } from '@vueuse/core';
 const ZodiacEmojiList = [...'🐭🐮🐯🐰🐲🐍🐴🐏🐵🐔🐶🐷'];
 const CategoryToEmoji: Record<string, string> = {
   开发: '👨‍💻',
-  练习: '✍️',
+  练习: '🎯',
   问答: '🙋‍♂️',
 };
 

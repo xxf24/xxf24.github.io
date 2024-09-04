@@ -15,7 +15,7 @@ const on = {
 </script>
 
 <template>
-  <transition v-on="on">
+  <Transition :on>
     <slot />
-  </transition>
+  </Transition>
 </template>

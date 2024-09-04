@@ -18,7 +18,7 @@ const is = defineAsyncComponent(props.loader);
       class="m-2 max-w-full overflow-hidden rounded-lg outline outline-2 outline-gray-400/20 p-4"
     >
       <ClientOnly>
-        <component :is />
+        <Component :is />
       </ClientOnly>
     </div>
   </div>
