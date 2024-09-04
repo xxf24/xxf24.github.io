@@ -12,6 +12,9 @@ export default defineConfig({
     presetUno(),
     presetIcons({
       scale: 1.2,
+      extraProperties: {
+        display: 'inline-block',
+      },
     }),
   ],
   transformers: [transformerVariantGroup()],

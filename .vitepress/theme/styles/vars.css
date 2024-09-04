@@ -1,10 +1,14 @@
 :root {
+  --bg: #fff;
+  --bg-alt: #f6f8fa;
   --brand: #0588f0;
   --border: #d0d7de;
   --radius: 0.5rem;
 }
 
 :root.dark {
+  --bg: #17181a;
+  --bg-alt: #1e2022;
   --brand: #10b981;
-  --border: #3f3f46;
+  --border: #2f3134;
 }

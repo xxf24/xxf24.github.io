@@ -15,7 +15,7 @@ const is = defineAsyncComponent(props.loader);
 <template>
   <div class="w-screen flex justify-center -ml-6 sm:ml-0 sm:w-full">
     <div
-      class="m-2 max-w-full overflow-hidden rounded-lg outline outline-2 outline-gray-400/20 p-4"
+      class="m-2 max-w-full overflow-hidden rounded-lg outline outline-2 outline-gray-400/20"
     >
       <ClientOnly>
         <Component :is />

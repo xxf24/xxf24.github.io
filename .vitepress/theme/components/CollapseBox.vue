@@ -27,7 +27,7 @@ const iconClass = computed(() => {
 
 <template>
   <div class="flex flex-col">
-    <div class="relative">
+    <div class="select-none relative">
       <hr class="absolute w-full" />
       <button
         class="relative mx-auto flex-center h-8 w-60% max-w-80 gap-2 rounded-full border-base transition bg-$vp-c-bg"
