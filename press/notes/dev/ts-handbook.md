@@ -6,7 +6,8 @@ tags:
   - typescript
 ---
 
-> [!TIP] <i class="i-lucide-quote" />
+> [!TIP] <span class="i-lucide-quote" />
+>
 > 本文是作者在阅读文档 [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html) 时整理的笔记，主要包含以下内容：
 >
 > - 文档中的一些使用案例

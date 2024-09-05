@@ -6,7 +6,7 @@ tags:
   - typescript
 ---
 
-> [!TIP] <i class="i-lucide-quote" />
+> [!TIP] <span class="i-lucide-quote" />
 >
 > 本文是作者的一些解题笔记。
 > 其中，所有题目均来源于该开源项目：[type-challenges](https://github.com/type-challenges/type-challenges) 🙏。

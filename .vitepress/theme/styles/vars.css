@@ -2,6 +2,9 @@
   --bg: #fff;
   --bg-alt: #f6f8fa;
   --brand: #0588f0;
+  --text-1: #333;
+  --text-2: #666;
+  --text-3: #999;
   --border: #d0d7de;
   --radius: 0.5rem;
 }
@@ -10,5 +13,8 @@
   --bg: #17181a;
   --bg-alt: #1e2022;
   --brand: #10b981;
+  --text-1: #ddd;
+  --text-2: #aaa;
+  --text-3: #777;
   --border: #2f3134;
 }
