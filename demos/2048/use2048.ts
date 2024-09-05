@@ -87,6 +87,7 @@ export function use2048(
     best,
     init: model.init.bind(model),
     back: model.back.bind(model),
+    canIBack: model.canIRevert.bind(model),
     load,
   };
 }

@@ -25,7 +25,6 @@ export class G2048Model {
   tiles: TileMeta[] = [];
   cells: TileCell[][] = [];
   prevState?: { score: number; tiles: string };
-  currTiles?: string;
 
   init(options: ModelOptions = {}) {
     this.gg = false;
@@ -47,12 +46,9 @@ export class G2048Model {
       return;
     }
     const prevScore = this.score;
-    const prevTiles = this.currTiles ?? JSON.stringify(this.tiles);
+    const prevTiles = JSON.stringify(this.tiles);
     this.doMoveTiles(direction);
-    if (
-      this.score > prevScore ||
-      (this.currTiles = JSON.stringify(this.tiles)) !== prevTiles
-    ) {
+    if (this.score > prevScore || JSON.stringify(this.tiles) !== prevTiles) {
       this.updateCells();
       this.popup(1);
       this.times++;
@@ -75,6 +71,10 @@ export class G2048Model {
     this.gg = false;
     this.times--;
     this.updateCells();
+  }
+
+  canIRevert() {
+    return !!this.prevState;
   }
 
   popup(count = 1) {
