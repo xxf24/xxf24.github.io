@@ -1,0 +1,1 @@
+function h(e,n){return function(...i){return e.apply(n,i)}}function s(e,n=e.length,i=[]){let t=e.slice();if(i.length){const r=new Set(i);t=t.filter((l,o)=>!r.has(o))}n=Math.min(n,t.length);for(let r=0;r<n;r++){const l=f(r,t.length-1);[t[r],t[l]]=[t[l],t[r]]}return t.slice(0,n)}function f(e,n){return Math.floor(Math.random()*(n-e+1))+e}export{h as b,s};
